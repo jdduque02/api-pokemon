@@ -31,65 +31,32 @@ Node.js instalado (versión 22.14.0 o superior).
 
 1.  Ruta Para registrar un usuario:
 
+    1. POST: http://localhost:${PORT}/api/v${VERSION}/user/
 
-    POST: http://localhost:${PORT}/api/v${VERSION}/user/
+    2. body:{
+       "username":"prueba121",
+       "password":"prueba12"
+       }
 
-    body:
-    {
-        "username":"prueba121",
-        "password":"prueba12"
-    }
-    respuesta:
-    {
-        "message": "User created successfully",
-        "user": {
-            "id": "1b8e657c-3610-44c0-8442-8f57ecd95b86",
-            "username": "prueba121"
-        },
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJkYXRhIjp7InVzZXJuYW1lIjoicHJ1ZWJhMTIxIn0sImV4cGlyZXNJbiI6IjIwMjUtMDItMjZUMTg6Mzc6MTcuNDczWiIsImlhdCI6MTc0MDU5NTAzNzQ3M30.iY7L_1Jg1yk8ctzPu6ThcBJci8ptYC0gnNVnpF8-oEA"
-    }
-
-2. Iniciar sesión:
-   POST: http://localhost:${PORT}/api/v${VERSION}/user/login
-   body:
-   {
-   "username":"prueba121",
-   "password":"prueba12"
-   }
-   respuesta:
-   {
-   "message": "Login successful",
-   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoicHJ1ZWJhMTIxIn0sImV4cGlyZXNJbiI6IjIwMjUtMDItMjZUMTc6MTU6MTEuMjA5WiIsImlhdCI6MTc0MDU5MDExMTIwOX0.JpMQpMrVqkE1e_wUKnWVUyWuMsa1JYj129c21J6itbc"
-   }
-3. Consultar un pokemon
-   GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/name/clefairy
-   header:
-   X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
-   query params: nombre del pokemon
-4. Consultar un pokemon
-   GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/id/35
-   header:
-   X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
-   query params: id del pokemon
-   respuesta:
-   {
-   "id": 35,
-   "name": "clefairy",
-   "types": "fairy",
-   "hp": 70,
-   "attack": 45,
-   "specialAttack": 60,
-   "defense": 48,
-   "specialDefense": 65,
-   "speed": 35
-   }
-5. Consultar pokemons con paginacion incluida y limites:
-   GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/all/?page=${page}&limit=${limit}
-   header:
-   X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
-   query params:  
-    - page - limit
+2.  Iniciar sesión:
+    POST: http://localhost:${PORT}/api/v${VERSION}/user/login
+    - body:{"username":"prueba121", "password":"prueba12"}
+3.  Consultar un pokemon
+    - GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/name/clefairy
+    - header:X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
+    - query params: nombre del pokemon
+4.  Consultar un pokemon
+    - GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/id/35
+    - header: X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
+    - query params: id del pokemon
+5.  Consultar pokemons con paginacion incluida y limites:
+    GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/all/?page=${page}&limit=${limit}
+    - header: X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
+    - query params:
+        - page 
+        - limit
 
 ## BD
 
     se usaron archivos .json como BD en esta prueba
+    el nombre del atributo header para el JWT es X-Access-Token
