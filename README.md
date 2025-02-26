@@ -30,16 +30,11 @@ Node.js instalado (versión 22.14.0 o superior).
 ## Uso:
 
 1.  Ruta Para registrar un usuario:
-
-    1. POST: http://localhost:${PORT}/api/v${VERSION}/user/
-
-    2. body:{
-       "username":"prueba121",
-       "password":"prueba12"
-       }
+    - POST: http://localhost:${PORT}/api/v${VERSION}/user/
+    - body:{ "username":"prueba121", "password":"prueba12"}
 
 2.  Iniciar sesión:
-    POST: http://localhost:${PORT}/api/v${VERSION}/user/login
+    - POST: http://localhost:${PORT}/api/v${VERSION}/user/login
     - body:{"username":"prueba121", "password":"prueba12"}
 3.  Consultar un pokemon
     - GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/name/clefairy
@@ -50,7 +45,7 @@ Node.js instalado (versión 22.14.0 o superior).
     - header: X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
     - query params: id del pokemon
 5.  Consultar pokemons con paginacion incluida y limites:
-    GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/all/?page=${page}&limit=${limit}
+    - GET: http://localhost:${PORT}/api/v${VERSION}/pokemon/all/?page=${page}&limit=${limit}
     - header: X-Access-Token: el token obtenido tanto en Iniciar sesión como en el crear usuario
     - query params:
         - page 
