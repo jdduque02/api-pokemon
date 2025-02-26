@@ -78,6 +78,7 @@ const create = (req, res = response) => {
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
+    delete newUser.password;
     res.status(201).json({ message: 'User created successfully', user: newUser, token });
 }
 
